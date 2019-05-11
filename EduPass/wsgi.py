@@ -8,5 +8,5 @@ https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "EduPass.settings")
 
-from EduPass.wsgi import EduPass
-application = EduPass(application)
+from EduPass import wsgi
+application = wsgi(application)
