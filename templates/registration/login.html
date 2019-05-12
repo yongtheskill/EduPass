@@ -5,8 +5,22 @@
 {% block content %}
 <h2>Login</h2>
 <form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
+  {% csrf_token %} 
+  <div class="row">
+    <div class="input-field col s12 l6">
+      <input type="text" name="username" autofocus="" required="" id="id_username">
+      <label for="id_username" class="">Username:</label>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="input-field col s12 l6">
+      <input type="password" name="password" required="" id="id_password">
+      <label for="id_password">Password:</label>
+    </div>
+  </div>
+
+
   <button type="submit">Login</button>
 </form>
 {% endblock %}
