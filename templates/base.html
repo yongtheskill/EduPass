@@ -8,11 +8,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
 </head>
-<body class="container grey-text text-lighten-4 grey darken-4">
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
+<header>
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper teal darken-2">
+            <a href="/" class="brand-logo right">EduPass</a>
+            <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="left hide-on-med-and-down">
+              <li><a href="/">Home</a></li>
+              <li><a href="/accounts/login/">Login</a></li>
+              <li><a href="/accounts/signup/">Sign up</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    
+      <script>
+        $(document).ready(function(){
+          $('.sidenav').sidenav();
+        });
+      </script>
+    
+      <ul class="sidenav teal darken-2" id="mobile" style="padding-top:5%">
+        <li><a class="white-text" href="/bookings/">Show all bookings</a></li>
+        <li><a class="white-text" href="/makeBooking/">Make a booking</a></li>
+      </ul>
+</header>
+
+<body class="grey-text text-lighten-4 grey darken-4">
+  <div class="container">
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </div>
 </body>
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
