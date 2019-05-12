@@ -3,13 +3,15 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">logout</a></p>
-  <p><a href="{% url 'password_reset' %}">reset password</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-  <a href="{% url 'signup' %}">login</a>
+<div class="center-align">
+  {% if user.is_authenticated %}
+    Hi {{ user.username }}!
+    <p><a href="{% url 'logout' %}">logout</a></p>
+    <p><a href="{% url 'password_reset' %}">reset password</a></p>
+  {% else %}
+    <h2>You are not logged in</h2>
+    <p><a class="waves-effect waves-light btn-large" href="{% url 'login' %}">login</a></p>
+    <p><a class="waves-effect waves-light btn-large" href="{% url 'signup' %}">Sign Up</a></p>
+</div>
 {% endif %}
 {% endblock %}

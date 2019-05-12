@@ -4,9 +4,33 @@
 
 {% block content %}
   <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
+    <div class="row section">
+    <form method="post">
+      {% csrf_token %}
+      
+      <div class="row">
+        <div class="input-field col s12 l6">
+          <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">
+          <label for="id_username">Username:</label> 
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 l6">
+          <input type="password" name="password1" required="" id="id_password1">
+          <label for="id_password1">Password:</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 l6">
+          <input type="password" name="password2" required="" id="id_password2">
+          <label for="id_password2">Password confirmation:</label> 
+        </div>
+      </div>
+
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
 {% endblock %}
