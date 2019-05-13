@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
+from django.contrib.admin.sites import AdminSite
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -52,6 +54,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'EduPass.urls'
+
+AdminSite.site_header = 'EduPass Admin'
+AdminSite.site_title = 'EduPass Admin'
 
 TEMPLATES = [
     {
