@@ -1,47 +1,39 @@
 {% load static %}
-<script>
-$('.dropdown-trigger').dropdown();
-</script>
 <div class="row">
-    
-  <!-- Dropdown Trigger -->
-  <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
 
-  <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">three</a></li>
-    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-  </ul>
+    <!-- card -->
         <div class="col s12 m6">
             <div class="grey darken-3 card hoverable">
                 <a data-target='dropdown1' class="dropdown-trigger" href="#">
                     <div class="card-image">
                         <img src="{% static "home/3.jpg" %}">
-                        <span class="card-title grey-text text-lighten-3" style="text-shadow: .05em .05em .25em black;">Card Title</span>
+                        <span class="card-title grey-text text-lighten-3" style="text-shadow: .05em .05em .25em black;">E-Learning Platforms</span>
                     </div>
                 </a>
             </div>
         </div>
-        <ul id='dropdown1' class='dropdown-content'>
-          <li><a href="#!">one</a></li>
-          <li><a href="#!">two</a></li>
-          <li class="divider" tabindex="-1"></li>
-          <li><a href="#!">three</a></li>
-          <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-          <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-        </ul>
+            <ul id='dropdown1' class='dropdown-content grey darken-3'>
+                <li><a class="grey-text text-lighten-3" href="https://learning.moe.edu.sg/">Student Learning Space</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://lms.asknlearn.com/">ASKnLearn</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://www.ace-learning.com/login">ACE-Learning</a></li>
+              </ul>
+        <!-- card end -->
 
             
+    <!-- card -->
         <div class="col s12 m6">
                 <div class="grey darken-3 card hoverable">
+                    <a data-target='dropdown2' class="dropdown-trigger" href="#">
                         <div class="card-image">
                             <img src="{% static "home/3.jpg" %}">
-                            <span class="card-title grey-text text-lighten-3" style="text-shadow: .05em .05em .25em black;">Card Title</span>
+                            <span class="card-title grey-text text-lighten-3" style="text-shadow: .05em .05em .25em black;">Manage Funds</span>
                         </div>
+                    </a>
                 </div>
             </div>
+            <ul id='dropdown2' class='dropdown-content grey darken-3'>
+                <li><a class="grey-text text-lighten-3" href="https://learning.moe.edu.sg/">$$$</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://lms.asknlearn.com/">u</a></li>
+              </ul>
+            <!-- card end -->
         </div>
