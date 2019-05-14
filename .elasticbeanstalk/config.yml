@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: EduPass
+    environment: EduPass-env
     group_suffix: null
 environment-defaults:
   EduPass:
