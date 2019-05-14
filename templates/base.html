@@ -24,6 +24,46 @@
     .dropdown-content li:hover, .dropdown-content li.active {
       background-color: #616161;
     }
+
+    .datepicker-calendar-container {
+      background-color: #616161;
+    }
+
+    .datepicker-cancel,
+    .datepicker-clear,
+    .datepicker-today,
+    .datepicker-done {
+      color: white;
+    }
+
+        
+    .datepicker-table td.is-today {
+      color: white;
+    }
+
+        
+    .month-prev, .month-next {
+      color: white;
+    }
+
+    .datepicker-controls .select-year input {
+      color:white;
+    }
+
+    .datepicker-controls .select-month input {
+      color:white;
+    }
+    
+    .datepicker-date-display {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1 auto;
+          -ms-flex: 1 auto;
+              flex: 1 auto;
+      background-color: #424242;
+      color: #fff;
+      padding: 20px 22px;
+      font-weight: 500;
+    }
     </style>
     
     <!--  #7b4397ff         ->  #dc2430ff     -->
@@ -95,6 +135,10 @@
   $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.dropdown-trigger').dropdown({constrainWidth: false});
+  });
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
   });
 </script>
 

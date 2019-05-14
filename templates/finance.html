@@ -3,14 +3,20 @@
 
 {% block content %}
 {% load static %}
-<div class="center-align">
   {% if user.is_authenticated %}
-    <h2>Hi {{ user.student.StudentName }}!</h2>
-    {% include 'indexPage.html' %}
+    <h1 class="center-align">{{ user.student.StudentName }}'s Money</h1>
     <div class="divider"></div>
     <div class="section">
-      <div class="row"><p><a class="waves-effect waves-light btn-large" style="float:right;" href="{% url 'logout' %}">logout</a></p></div>
-      <div class="row"><p><a class="waves-effect waves-light btn-large" style="float:right;" href="{% url 'password_reset' %}">reset password</a></p></div>
+        <h4>Balance:</h4><h2>$23.23</h2>
+    </div>
+    <div class="divider"></div>
+    <div class="section">
+        <h4>Daily Report</h4>
+        <div class="row">
+            <div class="input-field col s9 m6 l3">
+                <h2><input type="text" class="datepicker grey-text text-lighten-4 flow-text"></h2>
+            </div>
+        </div>
     </div>
   {% else %}
     <h2>You are not logged in</h2>

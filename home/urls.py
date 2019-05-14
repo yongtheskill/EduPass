@@ -7,4 +7,5 @@ from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('', views.indexPage, name='home'),
+    path('finance/', views.financePage, name='Finance'),
 ]
