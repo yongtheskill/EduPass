@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <meta charset="utf-8">
+    <title>{% block title %}EduPass{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+    .highlight-purple{
+      background-color: rgb(123, 67, 151);
+    }
+    .btn, .btn-large {
+    background-color: rgb(123, 67, 151);
+    }
+    .btn:hover, .btn-large:hover{
+      background-color: rgb(150, 87, 182);
+    }
+    .btn, .btn-large, .btn-small,
+    .btn-flat{
+      border-radius:1em ;
+    }
+    
+    .dropdown-content li:hover, .dropdown-content li.active {
+      background-color: #616161;
+    }
+
+    .datepicker-calendar-container {
+      background-color: #616161;
+    }
+
+    .datepicker-cancel,
+    .datepicker-clear,
+    .datepicker-today,
+    .datepicker-done {
+      color: white;
+    }
+
+        
+    .datepicker-table td.is-today {
+      color: white;
+    }
+
+        
+    .month-prev, .month-next {
+      color: white;
+    }
+
+    .datepicker-controls .select-year input {
+      color:white;
+    }
+
+    .datepicker-controls .select-month input {
+      color:white;
+    }
+    
+    .datepicker-date-display {
+      background-color: #424242;
+    }
+
+    table, td, tr{
+      border-bottom-color: #969696;
+    }
+    </style>
+    
+    <!--  #7b4397ff         ->  #dc2430ff     -->
+    <!--  purple lighten-1  ->  red darken-3  -->
+
+    <!--  red lighten-2  -->
+    <!--  red lighten-2  -->
+  
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper" style="background-image:linear-gradient(to right,#7b4397,#dc2430);">
+            <a href="/" class="brand-logo center">EduPass</a>
+            </ul>
+          </div>
+        </nav>
+      </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+<main style="flex:1 0 auto;">
+  <body class="grey-text text-lighten-4 grey darken-4" style="display:flex;min-height:100vh;flex-direction:column;">
+    <div class="container">
+      {% load static %}
+      {% if user.is_authenticated %}
+        <h2>Welcome to !!!!!store name!</h2>
+        <div class="divider"></div>
+        <div class="section">
+          <h3>What do you want to buy?</h3>
+
+          <table class="flow-text">
+            <thead>
+              <tr>
+                  <th class=>Item</th>
+                  <th>Price</th>
+                  <th><div class="center">Purchase</div></th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>$</td>
+                <td><div class="center"><a href="#!"><i class="material-icons purple-text" style="font-size: 3rem;">shopping_cart</i></a></div></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>$</td>
+                <td><div class="center"><a href="#!"><i class="material-icons purple-text" style="font-size: 3rem;">shopping_cart</i></a></div></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>$</td>
+                <td><div class="center"><a href="#!"><i class="material-icons purple-text" style="font-size: 3rem;">shopping_cart</i></a></div></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      {% else %}
+        <h2>You are not logged in</h2>
+        <p><a class="waves-effect waves-light btn-large" href="{% url 'login' %}">login</a></p>
+        <p><a class="waves-effect waves-light btn-large" href="{% url 'signup' %}">Sign Up</a></p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</main>
+
+
+
+
+
+
+
+
+
+ <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+    $('.dropdown-trigger').dropdown({constrainWidth: false});
+  });
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>
+
+</html>
+

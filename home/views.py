@@ -8,3 +8,12 @@ def indexPage(request):
 
 def financePage(request):
     return render(request, 'finance.html')
+    
+def store1(request):
+    return render(request, 'store1.html')
+    
+def store2(request):
+    return render(request, 'store2.html')
+    
+def store3(request):
+    return render(request, 'store3.html')
