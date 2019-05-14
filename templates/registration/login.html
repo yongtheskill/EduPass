@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %} 
+  <div class="row">
+    <div class="input-field col s12 l6">
+      <input class="grey-text text-lighten-5" type="text" name="username" autofocus="" required="" id="id_username">
+      <label class="grey-text text-lighten-5" for="id_username" class="">Username:</label>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="input-field col s12 l6">
+      <input class="grey-text text-lighten-5" type="password" name="password" required="" id="id_password">
+      <label class="grey-text text-lighten-5" for="id_password">Password:</label>
+    </div>
+  </div>
+
+  <button class="btn waves-effect waves-light highlight-purple" type="submit" name="action">Login
+      <i class="material-icons right">forward</i>
+    </button>
+</form>
+{% endblock %}
