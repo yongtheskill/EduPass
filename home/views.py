@@ -5,7 +5,7 @@ from django.shortcuts import render
 from .models import Student, Event
 
 def indexPage(request):
-    if (request.user.student.isParent):
+    if (request.user.is_authenticated and request.user.student.isParent):
         childName = Student.objects.get(usrname=request.user.student.childName).displayName
         context = {'childsName': childName,}
         return render(request, 'home.html', context)
@@ -14,7 +14,7 @@ def indexPage(request):
 
 
 def financePage(request):
-    if (request.user.student.isParent):
+    if (request.user.is_authenticated and request.user.student.isParent):
         balance = Student.objects.get(usrname=request.user.student.childName).money
         context = {'balance': balance,}
         return render(request, 'finance.html', context)
@@ -22,7 +22,7 @@ def financePage(request):
         return render(request, 'home.html')
     
 def parentsFinancePage(request):
-    if (request.user.student.isParent):
+    if (request.user.is_authenticated and request.user.student.isParent):
         childName = Student.objects.get(usrname=request.user.student.childName).displayName
         balance = Student.objects.get(usrname=request.user.student.childName).money
         context = {'childsName': childName, 'balance': balance,}
@@ -31,7 +31,7 @@ def parentsFinancePage(request):
         return render(request, 'home.html')
     
 def communicationPage(request):
-    if (request.user.student.isParent):
+    if (request.user.is_authenticated and request.user.student.isParent):
         childName = Student.objects.get(usrname=request.user.student.childName).displayName
         comments = Student.objects.get(usrname=request.user.student.childName).comments
         teacher = Student.objects.get(usrname=request.user.student.childName).teacher
