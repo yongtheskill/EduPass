@@ -4,7 +4,7 @@
 {% block content %}
 {% load static %}
   {% if user.is_authenticated %}
-    <h1 class="center-align">{{ user.student.StudentName }}'s Money</h1>
+    <h1 class="center-align">{{ user.student.displayName }}'s Money</h1>
     <div class="divider"></div>
     <div class="section">
         <h4>Balance:</h4><h2>${{  balance  }}</h2>

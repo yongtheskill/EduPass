@@ -14,9 +14,10 @@ def indexPage(request):
 
 
 def financePage(request):
-    if (request.user.is_authenticated and request.user.student.isParent):
-        balance = Student.objects.get(usrname=request.user.student.childName).money
-        context = {'balance': balance,}
+    if (request.user.is_authenticated):
+        childName = request.user.student.displayName       
+        balance = request.user.student.money
+        context = {'balance': balance, 'childName': childName}
         return render(request, 'finance.html', context)
     else:
         return render(request, 'finance.html')
