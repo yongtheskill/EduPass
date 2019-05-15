@@ -10,7 +10,15 @@ def indexPage(request):
     return render(request, 'home.html', context)
 
 def financePage(request):
-    return render(request, 'finance.html')
+    balance = Student.objects.get(usrname=request.user.student.childName).money
+    context = {'balance': balance,}
+    return render(request, 'finance.html', context)
+    
+def parentsFinancePage(request):
+    childName = Student.objects.get(usrname=request.user.student.childName).displayName
+    balance = Student.objects.get(usrname=request.user.student.childName).money
+    context = {'childsName': childName, 'balance': balance,}
+    return render(request, 'parentsFinance.html', context)
     
 def store1(request):
     return render(request, 'store1.html')
