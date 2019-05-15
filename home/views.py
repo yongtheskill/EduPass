@@ -19,7 +19,7 @@ def financePage(request):
         context = {'balance': balance,}
         return render(request, 'finance.html', context)
     else:
-        return render(request, 'home.html')
+        return render(request, 'finance.html')
     
 def parentsFinancePage(request):
     if (request.user.is_authenticated and request.user.student.isParent):
@@ -28,7 +28,7 @@ def parentsFinancePage(request):
         context = {'childsName': childName, 'balance': balance,}
         return render(request, 'parentsFinance.html', context)
     else:
-        return render(request, 'home.html')
+        return render(request, 'parentsFinance.html')
     
 def communicationPage(request):
     if (request.user.is_authenticated and request.user.student.isParent):
@@ -38,7 +38,7 @@ def communicationPage(request):
         context = {'childsName': childName, 'comments': comments, 'teacher': teacher}
         return render(request, 'communication.html', context)
     else:
-        return render(request, 'home.html')
+        return render(request, 'communication.html')
     
 
 def eventsPage(request):

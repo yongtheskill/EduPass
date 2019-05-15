@@ -4,14 +4,14 @@ from django.contrib.auth.models import User
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    usrname = models.CharField(max_length=100, default='')
+    usrname = models.CharField(max_length=100, default='', blank=True)
     isParent = models.BooleanField(default=False)
-    displayName = models.CharField(max_length=100, default='')
-    childName = models.CharField(max_length=100, default='')
-    money = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
+    displayName = models.CharField(max_length=100, default='', blank=True)
+    childName = models.CharField(max_length=100, default='', blank=True)
+    money = models.DecimalField(decimal_places=2, max_digits=10, default=0.00, blank=True)
     isPaid = models.BooleanField(default=False)
-    phoneNumber = models.IntegerField(default=-1)
-    teacher = models.CharField(max_length=100, default='')
+    phoneNumber = models.IntegerField(default=-1, blank=True)
+    teacher = models.CharField(max_length=100, default='', blank=True)
     comments = models.TextField(default="none")
     parentsFeedback = models.TextField(default="none")
 
