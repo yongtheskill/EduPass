@@ -20,6 +20,13 @@ def parentsFinancePage(request):
     context = {'childsName': childName, 'balance': balance,}
     return render(request, 'parentsFinance.html', context)
     
+def communicationPage(request):
+    childName = Student.objects.get(usrname=request.user.student.childName).displayName
+    comments = Student.objects.get(usrname=request.user.student.childName).comments
+    teacher = Student.objects.get(usrname=request.user.student.childName).teacher
+    context = {'childsName': childName, 'comments': comments, 'teacher': teacher}
+    return render(request, 'communication.html', context)
+    
 def store1(request):
     return render(request, 'store1.html')
     

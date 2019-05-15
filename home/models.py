@@ -11,3 +11,6 @@ class Student(models.Model):
     money = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
     isPaid = models.BooleanField(default=False)
     phoneNumber = models.IntegerField(default=-1)
+    teacher = models.CharField(max_length=100, default='')
+    comments = models.TextField(default="none")
+    parentsFeedback = models.TextField(default="none")

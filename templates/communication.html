@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="center-align">
+  {% if user.is_authenticated %}
+      {% if user.student.isParent %}
+        <h1>Remarks for {{ childsName }}</h1>
+        <h4 class="left-align">{{  teacher  }}:</h4>
+        <p class="flow-text left-align">{{  comments  }}</p>
+
+      {% else %}
+        <h1>Sorry, you are not a parent and therefore do not have permission to access this page.</h1>
+      {% endif %}
+  {% else %}
+    <h2>You are not logged in</h2>
+    <p><a class="waves-effect waves-light btn-large" href="{% url 'login' %}">login</a></p>
+    <p><a class="waves-effect waves-light btn-large" href="{% url 'signup' %}">Sign Up</a></p>
+</div>
+{% endif %}
+{% endblock %}
