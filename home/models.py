@@ -14,3 +14,12 @@ class Student(models.Model):
     teacher = models.CharField(max_length=100, default='')
     comments = models.TextField(default="none")
     parentsFeedback = models.TextField(default="none")
+
+class Event(models.Model):
+    eventName = models.CharField(max_length=200, default='')
+    description = models.TextField(default="")
+    date = models.DateField(default="2019-05-19")
+    isApproved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.eventName
