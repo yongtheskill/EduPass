@@ -5,8 +5,13 @@
 {% load static %}
 <div class="center-align">
   {% if user.is_authenticated %}
-    <h2>Hi {{ user.student.StudentName }}!</h2>
-    {% include 'indexPage.html' %}
+    <h2>Hi {{ user.student.displayName }}!</h2>
+      {% if user.student.isParent %}
+        <h4>Viewing {{ childsName }}'s info</h4>
+        {% include 'parentIndexPage.html' %}
+      {% else %}
+        {% include 'indexPage.html' %}
+      {% endif %}
     <div class="divider"></div>
     <div class="section">
       <div class="row"><p><a class="waves-effect waves-light btn-large" style="float:right;" href="{% url 'logout' %}">logout</a></p></div>
