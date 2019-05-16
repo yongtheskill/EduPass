@@ -1,6 +1,6 @@
 TO SSH INTO SERVER:
-eb ssh
 --
+eb ssh <p>
 source /opt/python/run/venv/bin/activate <p>
 source /opt/python/current/env<p>
 cd /opt/python/current/app<p>
