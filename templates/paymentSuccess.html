@@ -92,58 +92,23 @@
   <body class="grey-text text-lighten-4 grey darken-4" style="display:flex;min-height:100vh;flex-direction:column;">
     <div class="container">
       {% load static %}
-      {% if user.is_authenticated %}
-        <h2>Welcome to the canteen!</h2>
-        <div class="divider"></div>
-        <div class="section">
-          <h3>What do you want to buy?</h3>
-
-          <table class="flow-text">
-            <thead>
-              <tr>
-                  <th class=>Item</th>
-                  <th>Price</th>
-                  <th><div class="center">Purchase</div></th>
-              </tr>
-            </thead>
+      <div class="center-align">
     
-            <tbody>
-              <tr>
-                <td>Wanton Noodle</td>
-                <td>$2.50</td>
-                <td><div class="center"><a href="/store1//payment/setAmt/250/"><i class="material-icons purple-text" style="font-size: 3rem;">shopping_cart</i></a></div></td>
-              </tr>
-              <tr>
-                <td>Nasi Lemak</td>
-                <td>$3.00</td>
-                <td><div class="center"><a href="/store1//payment/setAmt/300/"><i class="material-icons purple-text" style="font-size: 3rem;">shopping_cart</i></a></div></td>
-              </tr>
-              <tr>
-                <td>Roti Prata</td>
-                <td>$0.50</td>
-                <td><div class="center"><a href="/store1//payment/setAmt/50/"><i class="material-icons purple-text" style="font-size: 3rem;">shopping_cart</i></a></div></td>
-              </tr>
-              <tr>
-                <td>Chicken Rice</td>
-                <td>$3.00</td>
-                <td><div class="center"><a href="/store1//payment/setAmt/300/"><i class="material-icons purple-text" style="font-size: 3rem;">shopping_cart</i></a></div></td>
-              </tr>
-              <tr>
-                <td>Laksa</td>
-                <td>$4.20</td>
-                <td><div class="center"><a href="/store1//payment/setAmt/420/"><i class="material-icons purple-text" style="font-size: 3rem;">shopping_cart</i></a></div></td>
-              </tr>
-            </tbody>
-          </table>
+            <h1>Payment verified!</h1>
 
-        </div>
-      {% else %}
-        <h2>You are not logged in</h2>
-        <p><a class="waves-effect waves-light btn-large" href="{% url 'login' %}">login</a></p>
-        <p><a class="waves-effect waves-light btn-large" href="{% url 'signup' %}">Sign Up</a></p>
-      </div>
-      {% endif %}
+            <h4>Processing</h4>
+              <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
     </div>
+
+    <script>
+    setInterval(function() {
+      window.location.href = "/{{  storeId  }}"
+    }, 
+    2200);
+    </script>
+
   </body>
 </main>
 
@@ -168,7 +133,15 @@
 
   $(document).ready(function(){
     $('.datepicker').datepicker();
+    interval = setInterval(updateDiv,3200);
   });
+  
+    
+    function updateDiv() {
+      window.location.href = "/{{  storeId  }}"
+      clearInterval(interval);
+    }
+
 </script>
 
 </html>

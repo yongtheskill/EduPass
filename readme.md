@@ -7,23 +7,8 @@ cd /opt/python/current/app<p>
 python manage.py (commands)
 
 
-Canteen
-- Wanton Noodle
-- Nasi Lemak 
-- Roti Prata
-- Chicken Rice
-- Laksa
+<p>
 
-Bookshop
-- Pen
-- Curve ruler
-- Calculator
-- Dictionary 
-- correction tape
-
-Café
-- Fish and Chips
-- Waffles
-- Sandwich
-- Hot Chocolate
-- Taco
+<h1>SIMULATE FINGERPRINT SENSOR SUCCESS/FAIL</h1>
+<p>payment/auth/success/</p>
+<p>payment/auth/fail/</p>
