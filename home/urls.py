@@ -16,5 +16,5 @@ urlpatterns = [
     path('store2/', views.store2, name='Store2'),
     path('store3/', views.store3, name='Store3'),
 
-    path('paymentAuth/paymentStatus/', views.paymentStatus, name='paymentStatus'),
+    path('payment/auth/status/', views.paymentStatus, name='paymentStatus'),
 ]

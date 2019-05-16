@@ -27,7 +27,8 @@ class Payment(models.Model):
     index = models.IntegerField(default=1)
     payAmt = models.DecimalField(decimal_places=2, max_digits=10, default=-1)
     isPaid = models.BooleanField(default=False)
+    paymentFailed = models.BooleanField(default=False)
     requestingVerification = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.payAmt
+        return str(self.payAmt)
