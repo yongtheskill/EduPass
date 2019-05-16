@@ -19,7 +19,7 @@ python manage.py (commands)
 <p>
 <h1>Raspberry pi config</h1>
 --
-<a href="https://tutorials-raspberrypi.com/how-to-use-raspberry-pi-fingerprint-sensor-authentication/" />
+<a href="https://tutorials-raspberrypi.com/how-to-use-raspberry-pi-fingerprint-sensor-authentication/"></a>
 
 <p></p>
 <p>sudo bash</p>
