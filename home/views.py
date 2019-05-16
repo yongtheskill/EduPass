@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-from .models import Student, Event
+from .models import Student, Event, Payment
 
 def indexPage(request):
     if (request.user.is_authenticated and request.user.student.isParent):
@@ -64,8 +64,6 @@ def eventsPage(request):
     context = {'childsName': childName, 'events': events}
     return render(request, 'events.html', context)
 
-    
-    
 
 
 
@@ -78,3 +76,11 @@ def store2(request):
     
 def store3(request):
     return render(request, 'store3.html')
+
+
+
+    
+def paymentStatus(request):
+    paymentData = Payment.objects.get(index=1)
+
+    return JsonResponse({'requestingVerification': paymentData.requestingVerification})
