@@ -25,10 +25,13 @@ requestingVerification = False
 tryNumber = 1
 
 while (True):
-    verificationRequest = requests.get(url = "http://edupass-env.jeabjjzbuw.ap-southeast-1.elasticbeanstalk.com/payment/auth/status/")
+    try:
+        verificationRequest = requests.get(url = "http://edupass-env.jeabjjzbuw.ap-southeast-1.elasticbeanstalk.com/payment/auth/status/")
+    except:
+        print('website fail')
     requestingVerification = verificationRequest.json()['requestingVerification']
     if(requestingVerification):
-        while (tryNumber <=5):
+        while (tryNumber <= 3):
             try:
                 print('Waiting for finger...')
 
@@ -48,13 +51,14 @@ while (True):
                 if ( positionNumber == -1 ):
                     print('No match found!')
                     tryNumber += 1
+                    print ("try number: " + str(tryNumber))
                 else:
                     requests.get(url = "http://edupass-env.jeabjjzbuw.ap-southeast-1.elasticbeanstalk.com/payment/auth/success/")
                     tryNumber = 100
-                print ("try number: " + tryNumber)
             except Exception as e:
-                print("ono :( " + e)
-
+                print("ono :( " + str(e))
+        if tryNumber < 99:
+            requests.get(url = "http://edupass-env.jeabjjzbuw.ap-southeast-1.elasticbeanstalk.com/payment/auth/fail/")
         tryNumber = 1
 
 
