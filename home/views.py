@@ -8,7 +8,7 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render
 from .models import Student, Event, Payment
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, logout
+from django.contrib.auth import authenticate, logout, login
 from django.views.decorators.csrf import csrf_exempt
 
 def indexPage(request):
@@ -168,25 +168,26 @@ def checkIfPaid(request):
 def twoFactor(request):
     username = request.POST.get('username', '0')
     password = request.POST.get('password', '0')
+    phoneNumber = request.POST.get('phoneNumber', '0')
     twoFactorActualKey = request.POST.get('actual2Fa', '0')
     twoFactorInput = request.POST.get('twoFactorInput', '0')
     if(twoFactorActualKey == twoFactorInput):
         user = authenticate(username=username, password=password)
         if user is not None: 
+            login(request, user)
             return HttpResponseRedirect('/')
     else:
 
-        def randomString(stringLength=5):
-            """Generate a random string of fixed length """
-            letters = string.ascii_lowercase
-            return ''.join(random.choice(letters) for i in range(stringLength))
+        print("2fK: " +  twoFactorActualKey)
 
-        twoFactorKey = randomString()
-        print(twoFactorKey)
-        print("u")
+        numberList = list(str(phoneNumber))
+        numberList[:4] = "****"
+        displayNumber = "".join(numberList)
 
         context = {
-            'twoFactorKey': twoFactorKey,
+            'twoFactorKey': twoFactorActualKey,
+            'displayNumber': displayNumber,
+            'phoneNumber': phoneNumber,
             'username': username,
             'password': password,
         }

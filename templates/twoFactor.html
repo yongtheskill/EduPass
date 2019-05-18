@@ -3,35 +3,26 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h1>Please enter the key sent to your phone</h1>
-<form method="post" action="/auth/twoFactor/">
+<h1>Enter Two-Factor key</h1>
+<h4>Please enter the key sent to {{  displayNumber  }}</h4>
+<form method="post" action="/auth/twoFactor/" autocomplete="off">
   {% csrf_token %} 
-  <div class="row">
-    <div class="input-field col s12 l6">
       <input class="grey-text text-lighten-5" type="hidden" name="username" autofocus="" required="" id="username" value="{{  username  }}">
-    </div>
-  </div>
   
-  <div class="row">
-    <div class="input-field col s12 l6">
       <input class="grey-text text-lighten-5" type="hidden" name="password" required="" id="password" value="{{  password  }}">
-    </div>
-  </div>
   
-  <div class="row">
-    <div class="input-field col s12 l6">
       <input class="grey-text text-lighten-5" type="hidden" name="actual2Fa" required="" id="actual2Fa" value="{{  twoFactorKey  }}">
-    </div>
-  </div>
   
+      <input class="grey-text text-lighten-5" type="hidden" name="phoneNumber" required="" id="phoneNumber" value="{{  phoneNumber  }}">
+
   <div class="row">
     <div class="input-field col s12 l6">
-      <input class="grey-text text-lighten-5" maxlength="5" type="text" name="twoFactorInput" required="" id="twoFactorInput">
-      <label class="grey-text text-lighten-5" for="id_password">Two factor authentication key:</label>
+      <input class="grey-text text-lighten-5" maxlength="5" type="text" name="twoFactorInput" required="" id="twoFactorInput" autocomplete="off">
+      <label class="grey-text text-lighten-5" for="id_password">Two-Factor Key</label>
     </div>
   </div>
 
-  <button class="btn waves-effect waves-light highlight-purple" type="submit" name="action">Login
+  <button class="btn waves-effect waves-light highlight-purple" type="submit" name="action">Submit
       <i class="material-icons right">forward</i>
     </button>
 </form>

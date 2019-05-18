@@ -32,12 +32,18 @@ def LogIn(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user = authenticate(username=username, password=password)
+            phoneNumber = user.student.phoneNumber
+            numberList = list(str(phoneNumber))
+            numberList[:4] = "****"
+            displayNumber = "".join(numberList)
             if user is not None:
                 logout(request)
                 twoFactorKey = randomString()
-                print(twoFactorKey)
+                print("2fK: " + twoFactorKey)
                 context = {
                     'twoFactorKey': twoFactorKey,
+                    'displayNumber': displayNumber,
+                    'phoneNumber': phoneNumber,
                     'username': username,
                     'password': password,
                 }
