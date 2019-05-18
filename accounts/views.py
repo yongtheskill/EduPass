@@ -58,7 +58,8 @@ def LogIn(request):
 
                 client.publish(
                     PhoneNumber= phonenumbers.format_number(phonenumbers.parse(str(phoneNumber), "SG"), phonenumbers.PhoneNumberFormat.E164),
-                    Message=authMessage
+                    Message=authMessage,
+                    Subject="EduPass Authentication"
                 )
 
 
