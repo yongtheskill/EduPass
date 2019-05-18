@@ -23,4 +23,7 @@ urlpatterns = [
     path('ajax/checkIfPaid/', views.checkIfPaid, name='checkIfPaid'),
     path('<path:storeId>/paid/<int:paymentAmt>/', views.paymentSuccess, name='paymentSuccess'),
     path('<path:storeId>/failed/<int:paymentAmt>/', views.paymentFailed, name='paymentFailed'),
+
+    
+    path('auth/twoFactor/', views.twoFactor, name='twoFactor'),
 ]

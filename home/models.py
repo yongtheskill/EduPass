@@ -13,6 +13,7 @@ class Student(models.Model):
     teacher = models.CharField(max_length=100, default='', blank=True)
     comments = models.TextField(default="none")
     parentsFeedback = models.TextField(default="none")
+    twoFaKey = models.CharField(max_length=5, default='', blank=True)
 
 class Event(models.Model):
     eventName = models.CharField(max_length=200, default='')

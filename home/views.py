@@ -1,10 +1,15 @@
 from django.shortcuts import render
 
+import random
+import string
 import decimal
 
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render
 from .models import Student, Event, Payment
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, logout
+from django.views.decorators.csrf import csrf_exempt
 
 def indexPage(request):
     if (request.user.is_authenticated and request.user.student.isParent):
@@ -158,3 +163,34 @@ def checkIfPaid(request):
     }
 
     return JsonResponse(data)
+
+
+def twoFactor(request):
+    username = request.POST.get('username', '0')
+    password = request.POST.get('password', '0')
+    twoFactorActualKey = request.POST.get('actual2Fa', '0')
+    twoFactorInput = request.POST.get('twoFactorInput', '0')
+    if(twoFactorActualKey == twoFactorInput):
+        user = authenticate(username=username, password=password)
+        if user is not None: 
+            return HttpResponseRedirect('/')
+    else:
+
+        def randomString(stringLength=5):
+            """Generate a random string of fixed length """
+            letters = string.ascii_lowercase
+            return ''.join(random.choice(letters) for i in range(stringLength))
+
+        twoFactorKey = randomString()
+        print(twoFactorKey)
+        print("u")
+
+        context = {
+            'twoFactorKey': twoFactorKey,
+            'username': username,
+            'password': password,
+        }
+
+
+        return render(request, 'twoFactor.html', context)
+    
