@@ -4,9 +4,6 @@ import random
 import string
 import decimal
 
-import phonenumbers
-import boto3
-
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render
 from .models import Student, Event, Payment
@@ -180,19 +177,6 @@ def twoFactor(request):
             login(request, user)
             return HttpResponseRedirect('/')
     else:
-        authMessage = "EduPass Login Two-Factor authentication code for " + username + ": \n" + twoFactorActualKey
-
-        client = boto3.client(
-            "sns",
-            aws_access_key_id="AKIAQF4IUI6ABXEKSZEE",
-            aws_secret_access_key="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",
-            region_name="us-east-1"
-        )
-
-        client.publish(
-            PhoneNumber= phonenumbers.format_number(phoneNumber, phonenumbers.PhoneNumberFormat.E164),
-            Message=authMessage
-        )
 
         print("2fK: " +  twoFactorActualKey)
 
