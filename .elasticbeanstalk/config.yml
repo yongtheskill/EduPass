@@ -6,10 +6,13 @@ environment-defaults:
   EduPass:
     branch: null
     repository: null
+  EduPass-env:
+    branch: null
+    repository: null
 global:
   application_name: EduPass
   branch: null
-  default_ec2_keyname: null
+  default_ec2_keyname: EduPassKey
   default_platform: Python 3.6
   default_region: ap-southeast-1
   include_git_submodules: true

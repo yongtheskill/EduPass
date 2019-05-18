@@ -9,6 +9,9 @@ from django.shortcuts import render
 import random
 import string
 
+import phonenumbers
+import boto3
+
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
@@ -39,6 +42,27 @@ def LogIn(request):
             if user is not None:
                 logout(request)
                 twoFactorKey = randomString()
+
+                print ("beforeFormat: " + str(phoneNumber))
+                print ("afterFormat: " + phonenumbers.format_number(phonenumbers.parse(str(phoneNumber), "SG"), phonenumbers.PhoneNumberFormat.E164))
+
+                
+                authMessage = "EduPass Login Two-Factor authentication code for " + username + ": \n" + twoFactorKey
+
+                client = boto3.client(
+                    "sns",
+                    aws_access_key_id="AKIAQF4IUI6ABXEKSZEE",
+                    aws_secret_access_key="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",
+                    region_name="us-east-1"
+                )
+
+                client.publish(
+                    PhoneNumber= phonenumbers.format_number(phonenumbers.parse(str(phoneNumber), "SG"), phonenumbers.PhoneNumberFormat.E164),
+                    Message=authMessage
+                )
+
+
+
                 print("2fK: " + twoFactorKey)
                 context = {
                     'twoFactorKey': twoFactorKey,
