@@ -51,8 +51,8 @@ def LogIn(request):
 
                 client = boto3.client(
                     "sns",
-                    aws_access_key_id="AKIAQF4IUI6ABXEKSZEE",
-                    aws_secret_access_key="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",
+                    aws_access_key_id="AKIAQF4IUI6AGB4LPYXL",
+                    aws_secret_access_key="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",
                     region_name="us-east-1"
                 )
 
