@@ -53,7 +53,7 @@ def LogIn(request):
                     "sns",
                     aws_access_key_id="AKIAQF4IUI6AGB4LPYXL",
                     aws_secret_access_key="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",
-                    region_name="us-east-1"
+                    region_name="ap-southeast-1"
                 )
 
                 client.publish(
